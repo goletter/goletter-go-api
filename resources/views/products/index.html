@@ -1,0 +1,17 @@
+{{define "title"}}所有商品{{end}}
+
+{{define "main"}}
+    <div class="col-md-9 blog-main">
+
+        {{ range $key, $product := .Products }}
+
+            <div class="blog-post bg-white p-5 rounded shadow mb-4">
+                <a href="{{ $product.Link }}" class="text-dark text-decoration-none">{{ $product.Title }}</a>
+            </div>
+
+        {{ end }}
+
+        {{template "pagination" .PagerData }}
+
+    </div><!-- /.blog-main -->
+{{end}}
