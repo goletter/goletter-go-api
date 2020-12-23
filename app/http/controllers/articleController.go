@@ -4,6 +4,7 @@ import (
 	"goletter-go-api/app/models/article"
 	"goletter-go-api/pkg/route"
 	"goletter-go-api/pkg/view"
+	"html/template"
 	"net/http"
 )
 
@@ -36,6 +37,7 @@ func (ac *ArticlesController) Show(w http.ResponseWriter, r *http.Request) {
 
 	// 2. 读取对应的文章数据
 	article, err := article.Get(id)
+	article.Htmlcontent = template.HTML(article.Content)
 
 	// 3. 如果出现错误
 	if err != nil {

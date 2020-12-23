@@ -15,7 +15,6 @@ type ProductsController struct {
 
 // Index 文章列表页
 func (ac *ProductsController) Index(w http.ResponseWriter, r *http.Request) {
-
 	// 1. 获取结果集
 	products, pagerData, err := product.GetAll(r, 10)
 

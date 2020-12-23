@@ -5,6 +5,7 @@ import (
 	"goletter-go-api/app/models/user"
 	"goletter-go-api/pkg/route"
 	"goletter-go-api/pkg/types"
+	"html/template"
 )
 
 // Article 文章模型
@@ -16,6 +17,7 @@ type Article struct {
 	Describe string `gorm:"type:varchar(255);not null;" valid:"describe"`
 	Content  string `gorm:"type:longtext;not null;" valid:"content"`
 	Sort     string `gorm:"type:int(5);" valid:"sort"`
+	Htmlcontent template.HTML
 
 	UserID uint64 `gorm:"not null;index"`
 	User   user.User

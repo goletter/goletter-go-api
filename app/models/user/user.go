@@ -10,7 +10,7 @@ import (
 type User struct {
 	models.BaseModel
 
-	Name     string `gorm:"type:varchar(255);not null;unique" valid:"name"`
+	Username     string `gorm:"type:varchar(255);not null;unique" valid:"username"`
 	Email    string `gorm:"type:varchar(255);unique;" valid:"email"`
 	Password string `gorm:"type:varchar(255)" valid:"password"`
 

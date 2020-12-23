@@ -11,7 +11,6 @@ import (
 func SetupRoute() *mux.Router {
 	router := mux.NewRouter()
 	routes.RegisterWebRoutes(router)
-	routes.RegisterApiRoutes(router)
 
 	route.SetRoute(router)
 
