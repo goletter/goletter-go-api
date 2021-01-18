@@ -1,17 +1,21 @@
-{{define "title"}}所有商品{{end}}
+{{define "title"}}所有产品{{end}}
 
 {{define "main"}}
-    <div class="col-md-9 blog-main">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li class="active">所有产品</li>
+            </ol>
+        </div>
 
-        {{ range $key, $product := .Products }}
-
-            <div class="blog-post bg-white p-5 rounded shadow mb-4">
-                <a href="{{ $product.Link }}" class="text-dark text-decoration-none">{{ $product.Title }}</a>
-            </div>
-
-        {{ end }}
-
-        {{template "pagination" .PagerData }}
-
+        <div class="col-xs-12">
+            <ul class="list-group border-bottom">
+                {{ range $key, $product := .Products }}
+                    <li class="list-group-item"><a href="{{ $product.Link }}">{{ $product.Title }}</a> <span class="meta" title="{{ $product.Title }}"> {{ $product.CreatedAt }}</span></li>
+                {{ end }}
+            </ul>
+            {{template "pagination" .PagerData }}
+        </div>
     </div>
 {{end}}

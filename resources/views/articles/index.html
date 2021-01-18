@@ -1,17 +1,21 @@
 {{define "title"}}所有文章{{end}}
 
 {{define "main"}}
-    <div class="col-md-9 blog-main">
+    <div class="row">
+        <div class="col-xs-12">
+            <ol class="breadcrumb">
+                <li><a href="/"><i class="glyphicon glyphicon-home"></i></a></li>
+                <li class="active">所有文章</li>
+            </ol>
+        </div>
 
-        {{ range $key, $article := .Articles }}
-
-            <div class="blog-post bg-white p-5 rounded shadow mb-4">
-                <h3 class="blog-post-title"><a href="{{ $article.Link }}" class="text-dark text-decoration-none">{{ $article.Title }}</a></h3>
-            </div>
-
-        {{ end }}
-
-        {{template "pagination" .PagerData }}
-
+        <div class="col-xs-12">
+            <ul class="list-group border-bottom">
+                {{ range $key, $article := .Articles }}
+                <li class="list-group-item"><a href="{{ $article.Link }}">{{ $article.Title }}</a> <span class="meta" title="{{ $article.Title }}"> {{ $article.CreatedAt }}</span></li>
+                {{ end }}
+            </ul>
+            {{template "pagination" .PagerData }}
+        </div>
     </div>
 {{end}}

@@ -22,7 +22,6 @@ func GetByEmail(email string) (User, error) {
 	if err := model.DB.Where("email = ?", email).First(&user).Error; err != nil {
 		return user, err
 	}
-
 	return user, nil
 }
 

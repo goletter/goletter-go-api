@@ -35,6 +35,7 @@ func RegisterWebRoutes(r *mux.Router) {
 	// 静态资源
 	r.PathPrefix("/css/").Handler(http.FileServer(http.Dir("./public")))
 	r.PathPrefix("/js/").Handler(http.FileServer(http.Dir("./public")))
+	r.PathPrefix("/fonts/").Handler(http.FileServer(http.Dir("./public")))
 
 	// --- 全局中间件 ---
 
